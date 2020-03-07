@@ -1,0 +1,79 @@
+html{
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  background: #10625A;
+  display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+
+/* h1, p {
+  font-family: Lato;
+} */
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field{
+  display: flex;
+  padding: .5rem;
+  background: #CDBCB7;
+  border-radius: 3px;
+}
+
+.grid-row{
+  display: flex;
+  flex-direction: row;
+  /* margin-bottom: .5rem; */
+}
+
+.grid-row:last-child{
+  margin-bottom: 0;
+}
+     
+.grid-col{
+  display: flex;
+  flex-direction: column;
+  margin-right: .5rem;
+}
+
+.grid-col:last-child{
+  margin-right: 0;
+}
+
+.grid-cell{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-bottom: .5rem;
+  border-radius: 2px;
+}
+
+.cell-close{
+  background: #7A706D;
+}
+
+.cell-bomb{
+  background: #D8493D;
+}
+
+.cell-open{
+  background: #F7F8F6;
+}
+
+.grid-cell:last-child{
+  margin-bottom: 0;
+}
+
+.coordinates{
+  font-size: .8rem;
+}
