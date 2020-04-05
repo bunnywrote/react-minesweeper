@@ -5,9 +5,9 @@ import CellModel from './CellModel';
 export default class Board extends React.Component {
 
   GameState = Object.freeze({
-      RUN:   Symbol("run"),
-      LOSE:  Symbol("lose"),
-      WON:   Symbol("won")
+    RUN: Symbol("run"),
+    LOSE: Symbol("lose"),
+    WON: Symbol("won")
   });
 
   constructor(props) {
@@ -47,7 +47,7 @@ export default class Board extends React.Component {
         data[x][y].value = 99;
         mines--;
       }
-    } 
+    }
 
     return data;
   }
@@ -106,15 +106,15 @@ export default class Board extends React.Component {
 
     this.updateCellState(cell, 'open');
 
-    if(cell.value === 99) {
+    if (cell.value === 99) {
       this.setState({
         gameState: 'over',
       })
     }
 
-    if (cell.value === 0) {      
-      for(let c of cell.adjacentCells){
-        if(c.value < 99 && c.state === 'closed') {
+    if (cell.value === 0) {
+      for (let c of cell.adjacentCells) {
+        if (c.value < 99 && c.state === 'closed') {
           this.onCellChange(c)
         }
       }
@@ -144,13 +144,33 @@ export default class Board extends React.Component {
     return '07:23'
   }
 
+  // buildPanel = () => {
+  //   return <div className='game-panel'>
+  //     <div className='panel-row'>
+  //       <span className='panel-icon'>💣</span>
+  //       <span>{this.state.flags}</span>
+  //     </div>
+  //     <div className='panel-row'>
+  //       <span className='panel-icon'>🕒</span>
+  //       <span>{this.getTime()}</span>
+  //     </div>
+  //   </div>
+  // }
+
   buildPanel = () => {
     return <div className='game-panel'>
-      <div className='panel-row'>
+      <div className='panel-section'>
         <span className='panel-icon'>💣</span>
         <span>{this.state.flags}</span>
       </div>
-      <div className='panel-row'>
+      <div className='panel-section'>
+        <span className='reset-icon'>
+          {
+            (this.state.gameState === this.GameState.LOSE) ? '😵' : '🙂'
+        }
+        </span>
+      </div>
+      <div className='panel-section'>
         <span className='panel-icon'>🕒</span>
         <span>{this.getTime()}</span>
       </div>
