@@ -21,6 +21,15 @@ export default class Board extends React.Component {
     };
   }
 
+  restart = () => {
+    this.setState({
+      cells: this.initData(this.props.size),
+      gameState: this.GameState.RUN,
+      flags: this.props.mines,
+      runningTime: 0
+    })
+  }
+
   initData = (size) => {
     let data = new Array(size)
       .fill(0)
@@ -164,7 +173,7 @@ export default class Board extends React.Component {
         <span>{this.state.flags}</span>
       </div>
       <div className='panel-section'>
-        <span className='reset-icon'>
+        <span className='reset-icon' onClick={this.restart}>
           {
             (this.state.gameState === this.GameState.LOSE) ? '😵' : '🙂'
         }
