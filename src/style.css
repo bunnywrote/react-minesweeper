@@ -17,8 +17,34 @@ height: 100vh;
 
 .game {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.game-panel{
+  align-self: flex-end;
+  margin-bottom: 1rem;
+  padding: 8px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.panel-icon{
+  font-size: 1.5rem;
+  margin-right: 2rem;
+}
+
+.game-panel > :first-child{
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+
+.panel-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .field{
