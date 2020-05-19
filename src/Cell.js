@@ -9,9 +9,9 @@ cellValue: [0-99] | -   |
 
 const Cell = (props) => {
 
-  // const isOpen = props.model.state === 'open'
+  const isOpen = props.model.state === 'open'
   const isFlagged = props.model.state === 'flag'
-  const isOpen = true
+  // const isOpen = true
   const x = props.model.x
   const y = props.model.y
   const value = props.model.value

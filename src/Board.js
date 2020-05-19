@@ -113,11 +113,13 @@ export default class Board extends React.Component {
 
   onCellChange = (cell) => {
 
+    if(this.state.gameState === this.GameState.LOSE) return
+
     this.updateCellState(cell, 'open');
 
     if (cell.value === 99) {
       this.setState({
-        gameState: 'over',
+        gameState: this.GameState.LOSE,
       })
     }
 
@@ -131,7 +133,11 @@ export default class Board extends React.Component {
   }
 
   setFlag = (cell) => {
-    this.updateCellState(cell, 'flag')
+    if (cell.state === 'flag') {
+      this.updateCellState(cell, 'close')
+    }else{
+      this.updateCellState(cell, 'flag')
+    }
   }
 
   updateCellState = (cell, state) => {

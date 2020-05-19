@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Board from './Board';
 import './style.css';
+import AppContextProvider from './AppContextProvider';
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,8 @@ class App extends Component {
   render() {
     return (
       <div className="game">
-        <Board size={this.state.boardSize} mines={this.state.minesCount}/>
+        <AppContextProvider/>
+        {/* <Board size={this.state.boardSize} mines={this.state.minesCount}/> */}
       </div>
     );
   }
